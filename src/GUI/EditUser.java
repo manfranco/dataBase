@@ -5,11 +5,10 @@
  */
 
 package GUI;
-<<<<<<< HEAD
-=======
+
 import Access.DAO;
 import Access.User;
->>>>>>> d32c06c72e028318d0f927a76230e714050eb495
+
 
 /**
  *
@@ -20,19 +19,17 @@ public class EditUser extends javax.swing.JFrame {
     /**
      * Creates new form EditUser
      */
-<<<<<<< HEAD
-=======
+
     DAO dao = new DAO();
     User user = new User();
->>>>>>> d32c06c72e028318d0f927a76230e714050eb495
     public EditUser() {
         user = dao.getUser();
         initComponents();
-<<<<<<< HEAD
-=======
         txtName.setText(user.getName_user());
+        txtUser.setText(user.getUsername());
+        txtEmail.setText(user.getEmail_user());
+        pssPass.setText(user.getPassword());
         
->>>>>>> d32c06c72e028318d0f927a76230e714050eb495
     }
 
     /**

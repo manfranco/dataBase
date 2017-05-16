@@ -23,37 +23,21 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="lblEmail" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="424" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblEmail" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="pssPass" alignment="0" min="-2" pref="164" max="-2" attributes="0"/>
                           <Component id="txtEmail" alignment="0" min="-2" pref="164" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblName" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="txtName" alignment="0" min="-2" pref="164" max="-2" attributes="0"/>
                           <Component id="lblUser" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="txtUser" alignment="0" min="-2" pref="164" max="-2" attributes="0"/>
+                          <Component id="lblPass" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="288" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="lblPass" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="114" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-          </Group>
-          <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
                       <Component id="btnAcept" min="-2" max="-2" attributes="0"/>
