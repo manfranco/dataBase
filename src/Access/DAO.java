@@ -10,6 +10,7 @@ public class DAO {
     static final String DB_URL = "jdbc:oracle:thin:@localhost:1521:xe";
     private Connection conn = null;
     private Statement stmt = null;
+    private CallableStatement stmt2 = null;
     //  Database credentials
     static final String USER = "admin";
     static final String PASS = "root";
@@ -34,30 +35,26 @@ public class DAO {
         System.out.println("Goodbye!");
     }//end main
 
-    public User login(String username, String password) {
+    public boolean login(String username, String password) {
         User user = new User();
+        boolean in = false;
         try {
             //STEP 4: Execute a query
             System.out.println("Creating statement...");
-            stmt = conn.createStatement();
-            String sql;
-            sql = "SELECT id, first, last, age FROM Employees";
-            ResultSet rs = stmt.executeQuery(sql);
-
-            //STEP 5: Extract data from result set
-            while (rs.next()) {
-                //Retrieve by column name
-                user.setIduser(rs.getInt("ID_USER"));
-                user.setName_user(rs.getString("NAME_USER"));
-                user.setEmail_user(rs.getString("EMAIL_USER"));
-                user.setPassword("PASSWORD");
-                user.setUsername("USERNAME");
+            stmt2 = conn.prepareCall("{? = call CHECK_PASSWORD(?,?)}");
+            stmt2.setString(1, username);
+            stmt2.setString(2, password);
+            stmt2.execute();
+            in = stmt2.getBoolean(2);
+            if (in) {
+                System.out.println("Estamos dentro");
+            } else{
+                System.out.println("nope");
             }
-            System.out.println("Acceso concedido");
         } catch (Exception e) {
             System.out.println(e.toString());
         }
-        return user;
+        return in;
     }
     
     
