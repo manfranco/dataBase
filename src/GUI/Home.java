@@ -6,10 +6,13 @@
 
 package GUI;
 
+import Access.Courses;
+import Access.DAO;
 import java.util.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author admin
@@ -19,8 +22,14 @@ public class Home extends javax.swing.JFrame {
     /**
      * Creates new form Home
      */
+    DAO dao = new DAO();
     public Home() {
         initComponents();
+        DefaultTableModel model = (DefaultTableModel) tblCourses.getModel();
+        ArrayList <Courses> course = dao.coursesAvailable();
+        for (Courses courses : course) {
+            model.addRow(new Object[]{courses.getName(), courses.getLanguage(), courses.getStart_time()});
+        }
     }
     
     

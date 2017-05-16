@@ -20,14 +20,10 @@ public class Course extends javax.swing.JFrame {
     /**
      * Creates new form Course
      */
-    DAO dao = new DAO();
+    
     public Course() {
         initComponents();
-        DefaultTableModel model = (DefaultTableModel) tblWorkShops.getModel();
-        ArrayList <Courses> course = dao.coursesAvailable();
-        for (Courses courses : course) {
-            model.addRow(new Object[]{courses.getName(), courses.getLanguage(), courses.getStart_time()});
-        }
+        
     }
 
     /**
