@@ -5,6 +5,8 @@
  */
 package Access;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Miguel Morales
@@ -12,7 +14,7 @@ package Access;
 public class Test {
     public static void main(String[] args) {
         DAO dao = new DAO();
-        boolean test = dao.login("mmoral27", "111");
-        System.out.println(test);
+        dao.RegisterCourse(1, 5);
+        System.out.println("Ready");
     }
 }
