@@ -69,6 +69,11 @@ public class Course extends javax.swing.JFrame {
         lblCourseName.setText("<course_name>");
 
         btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         lblClass.setText("Classes");
 
@@ -90,6 +95,11 @@ public class Course extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblTexts.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblTextsMouseClicked(evt);
+            }
+        });
         scpTexts.setViewportView(tblTexts);
 
         tblWorkShops.setModel(new javax.swing.table.DefaultTableModel(
@@ -116,6 +126,11 @@ public class Course extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblClasses.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblClassesMouseClicked(evt);
+            }
+        });
         scpClasses.setViewportView(tblClasses);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -197,6 +212,31 @@ public class Course extends javax.swing.JFrame {
         this.setVisible(false);
         
     }//GEN-LAST:event_lblUserMouseClicked
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        Home hm = new Home();
+        hm.setVisible(true);
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void tblTextsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTextsMouseClicked
+        // TODO add your handling code here:
+        if(evt.getClickCount()==2){
+            this.setVisible(false);
+            Texts tx = new Texts();
+            tx.setVisible(true);
+        }
+    }//GEN-LAST:event_tblTextsMouseClicked
+
+    private void tblClassesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblClassesMouseClicked
+        // TODO add your handling code here:
+        if(evt.getClickCount()==2){
+            this.setVisible(false);
+            Workshops wo = new Workshops();
+            wo.setVisible(true);
+        }
+    }//GEN-LAST:event_tblClassesMouseClicked
 
     /**
      * @param args the command line arguments

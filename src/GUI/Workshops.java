@@ -40,6 +40,11 @@ public class Workshops extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         lblIDActivity.setText("ID:");
 
@@ -53,6 +58,11 @@ public class Workshops extends javax.swing.JFrame {
         lblActivy.setText("<activity>");
 
         btnSolution.setText("Show Solution");
+        btnSolution.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSolutionActionPerformed(evt);
+            }
+        });
 
         lblIDActivityQuery.setText("<id_activity>");
 
@@ -114,6 +124,17 @@ public class Workshops extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSolutionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolutionActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnSolutionActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        this.dispose();//Destruye la ventana
+        Course co = new Course(); //
+        co.setVisible(true); //Muestra venta Course
+    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments

@@ -6,6 +6,10 @@
 
 package GUI;
 
+import java.util.*;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 /**
  *
  * @author admin
@@ -18,6 +22,8 @@ public class Home extends javax.swing.JFrame {
     public Home() {
         initComponents();
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -82,6 +88,11 @@ public class Home extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tblCourses.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblCoursesMouseClicked(evt);
+            }
+        });
         scpCourses.setViewportView(tblCourses);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -142,9 +153,23 @@ public class Home extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnLogOutActionPerformed
 
+    private void tblCoursesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblCoursesMouseClicked
+        // TODO add your handling code here:
+        if(evt.getClickCount()==2){
+            this.setVisible(false);
+            Course co = new Course();
+            co.setVisible(true);
+        }
+        
+    }//GEN-LAST:event_tblCoursesMouseClicked
+
+    
+    
     /**
      * @param args the command line arguments
      */
+    
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -175,7 +200,9 @@ public class Home extends javax.swing.JFrame {
                 new Home().setVisible(true);
             }
         });
-    }
+        
+        
+                }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogOut;
