@@ -45,8 +45,6 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblConPass" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="pssConPass" alignment="0" min="-2" pref="164" max="-2" attributes="0"/>
-                          <Component id="txtLastName" alignment="0" min="-2" pref="164" max="-2" attributes="0"/>
-                          <Component id="lblLastName" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="btnCancel" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -69,15 +67,9 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="txtUser" min="-2" pref="32" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblName" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblLastName" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <Component id="lblName" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtName" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                  <Component id="txtLastName" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-              </Group>
+              <Component id="txtName" min="-2" pref="32" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblPass" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -130,13 +122,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Name"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblLastName">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Last Name"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtLastName">
     </Component>
     <Component class="javax.swing.JTextField" name="txtName">
       <Events>
