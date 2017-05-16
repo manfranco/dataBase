@@ -7,6 +7,7 @@
 package GUI;
 
 import Access.DAO;
+import Access.User;
 
 /**
  *
@@ -20,7 +21,8 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
     }
-
+    DAO dao = new DAO();
+    User user = new User();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -142,14 +144,16 @@ public class Login extends javax.swing.JFrame {
 
     private void btnEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterActionPerformed
         // TODO add your handling code here:
-        DAO dao = new DAO();
+        
         String username, password;
         username = txtUser.getText();
         password = pssPass.getText();
-        dao.login(username, password);
+        user = dao.login(username, password);
+        if(user.getIduser() != 0){
         this.dispose();
         Home hm = new Home();
         hm.setVisible(true);
+        }
     }//GEN-LAST:event_btnEnterActionPerformed
 
     /**
