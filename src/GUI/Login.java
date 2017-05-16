@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package GUI;
 
 import Access.DAO;
+import Access.User;
 
 /**
  *
@@ -136,7 +136,7 @@ public class Login extends javax.swing.JFrame {
     private void lblSignUpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSignUpMouseClicked
         // TODO add your handling code here:
         this.dispose();
-        CreateUser cu=new CreateUser();
+        CreateUser cu = new CreateUser();
         cu.setVisible(true);
     }//GEN-LAST:event_lblSignUpMouseClicked
 
@@ -146,10 +146,14 @@ public class Login extends javax.swing.JFrame {
         String username, password;
         username = txtUser.getText();
         password = pssPass.getText();
-        dao.login(username, password);
-        this.dispose();
-        Home hm = new Home();
-        hm.setVisible(true);
+        User user = dao.login(username, password);
+        if (user.getIduser() != 0) {
+            this.dispose();
+            Home hm = new Home();
+            hm.setVisible(true);
+        } else{
+            System.out.println("YOU SHALL NOT PASS");
+        }
     }//GEN-LAST:event_btnEnterActionPerformed
 
     /**

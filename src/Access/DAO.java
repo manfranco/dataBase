@@ -43,7 +43,7 @@ public class DAO {
     
 
     public User login(String username, String password) {
-        User user = new User();
+       
         int in = 0;
         try {
             //STEP 4: Execute a query
