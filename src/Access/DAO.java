@@ -12,8 +12,8 @@ public class DAO {
     private Statement stmt = null;
     private CallableStatement stmt2 = null;
     //  Database credentials
-    static final String USER = "admin";
-    static final String PASS = "root";
+    static final String USER = "system";
+    static final String PASS = "admin";
 
     public DAO() {
 
