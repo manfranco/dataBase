@@ -700,9 +700,9 @@ IaNJBwl8u33+SqGLZzILy1QxmA+pF8yUaQ+yRU/5+3n1mY4=
 ) RETURN BOOLEAN AS
 temp_user int;
 BEGIN
-select id_user into temp_user 
-from usuario
-where username = username_in and
+select count(u.ID_USER) into temp_user 
+from usuario u
+where u.username = username_in and
 password = password_in;
 if temp_user is null then
 return false;
