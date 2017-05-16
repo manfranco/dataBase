@@ -9,7 +9,7 @@ import java.sql.Date;
  *
  * @author mfranco
  */
-public class Course {
+public class Courses {
     private int difficulty;
     private String language;
     private String name;
@@ -18,7 +18,7 @@ public class Course {
     private Date end_time;
     private double total_grade;
 
-    public Course() {
+    public Courses() {
         
     }
 

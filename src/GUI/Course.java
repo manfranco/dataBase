@@ -5,6 +5,12 @@
  */
 package GUI;
 
+import Access.DAO;
+import Access.Courses;
+import java.util.ArrayList;
+
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author James
@@ -14,9 +20,14 @@ public class Course extends javax.swing.JFrame {
     /**
      * Creates new form Course
      */
+    DAO dao = new DAO();
     public Course() {
         initComponents();
-        
+        DefaultTableModel model = (DefaultTableModel) tblWorkShops.getModel();
+        ArrayList <Courses> course = dao.coursesAvailable();
+        for (Courses courses : course) {
+            model.addRow(new Object[]{courses.getName(), courses.getLanguage(), courses.getStart_time()});
+        }
     }
 
     /**
@@ -227,7 +238,7 @@ public class Course extends javax.swing.JFrame {
     private void lblUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblUserMouseClicked
         // TODO add your handling code here:
         this.setVisible(false);
-        
+
     }//GEN-LAST:event_lblUserMouseClicked
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -239,7 +250,7 @@ public class Course extends javax.swing.JFrame {
 
     private void tblTextsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTextsMouseClicked
         // TODO add your handling code here:
-        if(evt.getClickCount()==2){
+        if (evt.getClickCount() == 2) {
             this.setVisible(false);
             Texts tx = new Texts();
             tx.setVisible(true);
@@ -248,7 +259,7 @@ public class Course extends javax.swing.JFrame {
 
     private void tblClassesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblClassesMouseClicked
         // TODO add your handling code here:
-        if(evt.getClickCount()==2){
+        if (evt.getClickCount() == 2) {
             this.setVisible(false);
             Workshops wo = new Workshops();
             wo.setVisible(true);

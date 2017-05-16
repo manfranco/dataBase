@@ -179,8 +179,8 @@ public class DAO {
     }
 
     
-    public ArrayList<Course> coursesAvailable() {
-        ArrayList<Course> courses = new ArrayList();
+    public ArrayList<Courses> coursesAvailable() {
+        ArrayList<Courses> courses = new ArrayList();
         try {
             //STEP 4: Execute a query
             System.out.println("Creating statement...");
@@ -191,7 +191,7 @@ public class DAO {
             //STEP 5: Extract data from result set
 
             while (rs.next()) {
-                Course course = new Course();
+                Courses course = new Courses();
                 course.setDifficulty(rs.getInt("DIFFICULTY"));
                 course.setEnd_time(rs.getDate("END_TIME"));
                 course.setId_course(rs.getInt("ID_COURSE"));
