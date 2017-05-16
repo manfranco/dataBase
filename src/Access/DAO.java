@@ -41,7 +41,7 @@ public class DAO {
         try {
             //STEP 4: Execute a query
             System.out.println("Creating statement...");
-            stmt2 = conn.prepareCall("{? = call CHECK_PASSWORD(?,?)}");
+            stmt2 = conn.prepareCall("{call CHECK_PASSWORD(?,?)}");
             stmt2.setString(1, username);
             stmt2.setString(2, password);
             stmt2.execute();
