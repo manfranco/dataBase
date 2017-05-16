@@ -6,6 +6,7 @@
 
 package GUI;
 import Access.DAO;
+import Access.User;
 
 /**
  *
@@ -17,9 +18,12 @@ public class EditUser extends javax.swing.JFrame {
      * Creates new form EditUser
      */
     DAO dao = new DAO();
+    User user = new User();
     public EditUser() {
+        user = dao.getUser();
         initComponents();
-        txtName.setText();
+        txtName.setText(user.getName_user());
+        
     }
 
     /**
