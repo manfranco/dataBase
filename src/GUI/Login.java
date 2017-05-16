@@ -66,6 +66,11 @@ public class Login extends javax.swing.JFrame {
         lblPass.setText("Password");
 
         btnEnter.setText("Enter");
+        btnEnter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnterActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -81,8 +86,7 @@ public class Login extends javax.swing.JFrame {
                             .addComponent(lbAccount)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(33, 33, 33)
-                                .addComponent(lblSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(62, 62, 62))))
+                                .addComponent(lblSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lblWelcome)
                         .addGap(154, 154, 154))
@@ -133,6 +137,13 @@ public class Login extends javax.swing.JFrame {
         CreateUser cu=new CreateUser();
         cu.setVisible(true);
     }//GEN-LAST:event_lblSignUpMouseClicked
+
+    private void btnEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        Home hm = new Home();
+        hm.setVisible(true);
+    }//GEN-LAST:event_btnEnterActionPerformed
 
     /**
      * @param args the command line arguments

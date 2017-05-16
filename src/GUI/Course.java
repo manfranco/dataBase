@@ -28,45 +28,95 @@ public class Course extends javax.swing.JFrame {
     private void initComponents() {
 
         lblUserQuery = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblUser = new javax.swing.JLabel();
+        lblID = new javax.swing.JLabel();
         lblIDQuery = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lblText = new javax.swing.JLabel();
         lblCourseName = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        lblClass = new javax.swing.JLabel();
+        lblWorkshop = new javax.swing.JLabel();
         lblCourse_ID = new javax.swing.JLabel();
         lblIDCo = new javax.swing.JLabel();
+        scpTexts = new javax.swing.JScrollPane();
+        tblTexts = new javax.swing.JTable();
+        scpWorkShops = new javax.swing.JScrollPane();
+        tblWorkShops = new javax.swing.JTable();
+        scpClasses = new javax.swing.JScrollPane();
+        tblClasses = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lblUserQuery.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         lblUserQuery.setText("<user>");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel1.setText("User:");
+        lblUser.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        lblUser.setText("User:");
+        lblUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblUserMouseClicked(evt);
+            }
+        });
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel2.setText("ID:");
+        lblID.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        lblID.setText("ID:");
 
         lblIDQuery.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         lblIDQuery.setText("<id>");
 
-        jLabel3.setText("Text");
+        lblText.setText("Text");
 
         lblCourseName.setText("<course_name>");
 
         btnBack.setText("Back");
 
-        jLabel5.setText("Class");
+        lblClass.setText("Classes");
 
-        jLabel6.setText("WorkShops");
+        lblWorkshop.setText("WorkShops");
 
         lblCourse_ID.setText("<course_ID>");
 
         lblIDCo.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         lblIDCo.setText("ID:");
+
+        tblTexts.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        scpTexts.setViewportView(tblTexts);
+
+        tblWorkShops.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        scpWorkShops.setViewportView(tblWorkShops);
+
+        tblClasses.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        scpClasses.setViewportView(tblClasses);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -82,56 +132,71 @@ public class Course extends javax.swing.JFrame {
                                 .addComponent(lblIDCo)
                                 .addGap(8, 8, 8)
                                 .addComponent(lblCourse_ID)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
+                        .addGap(207, 207, 207)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
+                            .addComponent(lblUser)
+                            .addComponent(lblID))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblUserQuery)
                             .addComponent(lblIDQuery))
-                        .addGap(80, 80, 80))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnBack)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6))
+                            .addComponent(lblClass)
+                            .addComponent(lblWorkshop)
+                            .addComponent(lblText)
+                            .addComponent(scpTexts, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(scpWorkShops, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(scpClasses, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(lblCourseName))
+                        .addComponent(lblCourseName)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
                             .addComponent(lblCourse_ID)
                             .addComponent(lblIDCo)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lblUserQuery)
+                            .addGap(32, 32, 32))
+                        .addComponent(lblIDQuery))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblUserQuery)
-                        .addGap(32, 32, 32))
-                    .addComponent(lblIDQuery))
-                .addGap(38, 38, 38)
-                .addComponent(jLabel3)
-                .addGap(91, 91, 91)
-                .addComponent(jLabel5)
-                .addGap(90, 90, 90)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE)
+                        .addComponent(lblUser)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblID)))
+                .addGap(32, 32, 32)
+                .addComponent(lblText)
+                .addGap(18, 18, 18)
+                .addComponent(scpTexts, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblClass)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scpClasses, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblWorkshop)
+                .addGap(11, 11, 11)
+                .addComponent(scpWorkShops, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnBack)
-                .addGap(29, 29, 29))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lblUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblUserMouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_lblUserMouseClicked
 
     /**
      * @param args the command line arguments
@@ -170,15 +235,21 @@ public class Course extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel lblClass;
     private javax.swing.JLabel lblCourseName;
     private javax.swing.JLabel lblCourse_ID;
+    private javax.swing.JLabel lblID;
     private javax.swing.JLabel lblIDCo;
     private javax.swing.JLabel lblIDQuery;
+    private javax.swing.JLabel lblText;
+    private javax.swing.JLabel lblUser;
     private javax.swing.JLabel lblUserQuery;
+    private javax.swing.JLabel lblWorkshop;
+    private javax.swing.JScrollPane scpClasses;
+    private javax.swing.JScrollPane scpTexts;
+    private javax.swing.JScrollPane scpWorkShops;
+    private javax.swing.JTable tblClasses;
+    private javax.swing.JTable tblTexts;
+    private javax.swing.JTable tblWorkShops;
     // End of variables declaration//GEN-END:variables
 }

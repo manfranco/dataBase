@@ -27,36 +27,36 @@ public class Workshops extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        btnBack = new javax.swing.JButton();
+        lblIDActivity = new javax.swing.JLabel();
+        lblTags = new javax.swing.JLabel();
+        lblAct = new javax.swing.JLabel();
+        cbxClue = new javax.swing.JCheckBox();
         lblActivy = new javax.swing.JLabel();
         btnSolution = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lblIDActivityQuery = new javax.swing.JLabel();
+        lblTagsQuery = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Back");
+        btnBack.setText("Back");
 
-        jLabel1.setText("ID:");
+        lblIDActivity.setText("ID:");
 
-        jLabel2.setText("Tags:");
+        lblTags.setText("Tags:");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel3.setText("Activity");
+        lblAct.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblAct.setText("Activity");
 
-        jCheckBox1.setText("Clue");
+        cbxClue.setText("Clue");
 
         lblActivy.setText("<activity>");
 
         btnSolution.setText("Show Solution");
 
-        jLabel4.setText("<id_activity>");
+        lblIDActivityQuery.setText("<id_activity>");
 
-        jLabel5.setText("<tags>");
+        lblTagsQuery.setText("<tags>");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -68,19 +68,19 @@ public class Workshops extends javax.swing.JFrame {
                     .addComponent(lblActivy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jCheckBox1))
+                        .addComponent(cbxClue))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
+                            .addComponent(btnBack)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
+                                .addComponent(lblTags)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel5))
-                            .addComponent(jLabel3)
+                                .addComponent(lblTagsQuery))
+                            .addComponent(lblAct)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
+                                .addComponent(lblIDActivity)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel4)))
+                                .addComponent(lblIDActivityQuery)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -93,22 +93,22 @@ public class Workshops extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel4))
+                    .addComponent(lblIDActivity)
+                    .addComponent(lblIDActivityQuery))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel5))
+                    .addComponent(lblTags)
+                    .addComponent(lblTagsQuery))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel3)
+                .addComponent(lblAct)
                 .addGap(18, 18, 18)
                 .addComponent(lblActivy, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jCheckBox1)
+                .addComponent(cbxClue)
                 .addGap(59, 59, 59)
                 .addComponent(btnSolution)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(btnBack)
                 .addContainerGap())
         );
 
@@ -151,14 +151,14 @@ public class Workshops extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSolution;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JCheckBox cbxClue;
+    private javax.swing.JLabel lblAct;
     private javax.swing.JLabel lblActivy;
+    private javax.swing.JLabel lblIDActivity;
+    private javax.swing.JLabel lblIDActivityQuery;
+    private javax.swing.JLabel lblTags;
+    private javax.swing.JLabel lblTagsQuery;
     // End of variables declaration//GEN-END:variables
 }
