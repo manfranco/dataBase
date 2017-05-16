@@ -36,8 +36,6 @@ public class Home extends javax.swing.JFrame {
 
         lblUser = new javax.swing.JLabel();
         lblUserQuery = new javax.swing.JLabel();
-        lblID = new javax.swing.JLabel();
-        lblIDQuery = new javax.swing.JLabel();
         btnLogOut = new javax.swing.JButton();
         scpCourses = new javax.swing.JScrollPane();
         tblCourses = new javax.swing.JTable();
@@ -52,10 +50,6 @@ public class Home extends javax.swing.JFrame {
         });
 
         lblUserQuery.setText("<user>");
-
-        lblID.setText("ID");
-
-        lblIDQuery.setText("<ID>");
 
         btnLogOut.setText("Log Out");
         btnLogOut.addActionListener(new java.awt.event.ActionListener() {
@@ -101,13 +95,9 @@ public class Home extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblID)
-                    .addComponent(lblUser))
+                .addComponent(lblUser)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblUserQuery)
-                    .addComponent(lblIDQuery))
+                .addComponent(lblUserQuery)
                 .addGap(49, 49, 49))
             .addGroup(layout.createSequentialGroup()
                 .addGap(196, 196, 196)
@@ -124,11 +114,7 @@ public class Home extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblUser)
                     .addComponent(lblUserQuery))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblID)
-                    .addComponent(lblIDQuery))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
                 .addComponent(scpCourses, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnLogOut)
@@ -206,8 +192,6 @@ public class Home extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogOut;
-    private javax.swing.JLabel lblID;
-    private javax.swing.JLabel lblIDQuery;
     private javax.swing.JLabel lblUser;
     private javax.swing.JLabel lblUserQuery;
     private javax.swing.JScrollPane scpCourses;

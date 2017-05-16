@@ -16,6 +16,7 @@ public class Course extends javax.swing.JFrame {
      */
     public Course() {
         initComponents();
+        
     }
 
     /**
@@ -29,8 +30,6 @@ public class Course extends javax.swing.JFrame {
 
         lblUserQuery = new javax.swing.JLabel();
         lblUser = new javax.swing.JLabel();
-        lblID = new javax.swing.JLabel();
-        lblIDQuery = new javax.swing.JLabel();
         lblText = new javax.swing.JLabel();
         lblCourseName = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
@@ -57,12 +56,6 @@ public class Course extends javax.swing.JFrame {
                 lblUserMouseClicked(evt);
             }
         });
-
-        lblID.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        lblID.setText("ID:");
-
-        lblIDQuery.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        lblIDQuery.setText("<id>");
 
         lblText.setText("Text");
 
@@ -179,13 +172,9 @@ public class Course extends javax.swing.JFrame {
                                 .addGap(8, 8, 8)
                                 .addComponent(lblCourse_ID)))
                         .addGap(207, 207, 207)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblUser)
-                            .addComponent(lblID))
+                        .addComponent(lblUser)
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblUserQuery)
-                            .addComponent(lblIDQuery))
+                        .addComponent(lblUserQuery)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,21 +193,18 @@ public class Course extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblCourseName)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblCourse_ID)
-                            .addComponent(lblIDCo)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(lblUserQuery)
-                            .addGap(32, 32, 32))
-                        .addComponent(lblIDQuery))
+                        .addComponent(lblUserQuery)
+                        .addGap(64, 64, 64))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblUser)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblID)))
-                .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblCourseName)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblCourse_ID)
+                                    .addComponent(lblIDCo)))
+                            .addComponent(lblUser))
+                        .addGap(32, 32, 32)))
                 .addComponent(lblText)
                 .addGap(18, 18, 18)
                 .addComponent(scpTexts, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -309,9 +295,7 @@ public class Course extends javax.swing.JFrame {
     private javax.swing.JLabel lblClass;
     private javax.swing.JLabel lblCourseName;
     private javax.swing.JLabel lblCourse_ID;
-    private javax.swing.JLabel lblID;
     private javax.swing.JLabel lblIDCo;
-    private javax.swing.JLabel lblIDQuery;
     private javax.swing.JLabel lblText;
     private javax.swing.JLabel lblUser;
     private javax.swing.JLabel lblUserQuery;
