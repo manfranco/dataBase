@@ -6,6 +6,8 @@
 
 package GUI;
 
+import Access.DAO;
+
 /**
  *
  * @author admin
@@ -140,6 +142,11 @@ public class Login extends javax.swing.JFrame {
 
     private void btnEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterActionPerformed
         // TODO add your handling code here:
+        DAO dao = new DAO();
+        String username, password;
+        username = txtUser.getText();
+        password = pssPass.getText();
+        dao.login(username, password);
         this.dispose();
         Home hm = new Home();
         hm.setVisible(true);

@@ -6,6 +6,8 @@
 
 package GUI;
 
+import Access.DAO;
+
 /**
  *
  * @author admin
@@ -29,7 +31,6 @@ public class CreateUser extends javax.swing.JFrame {
     private void initComponents() {
 
         lblSignUp = new javax.swing.JLabel();
-        lblLastName = new javax.swing.JLabel();
         lblPass = new javax.swing.JLabel();
         lblConPass = new javax.swing.JLabel();
         lblEmail = new javax.swing.JLabel();
@@ -38,7 +39,6 @@ public class CreateUser extends javax.swing.JFrame {
         txtUser = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
         txtName = new javax.swing.JTextField();
-        txtLastName = new javax.swing.JTextField();
         pssPass = new javax.swing.JPasswordField();
         pssConPass = new javax.swing.JPasswordField();
         btnRegister = new javax.swing.JButton();
@@ -48,8 +48,6 @@ public class CreateUser extends javax.swing.JFrame {
 
         lblSignUp.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblSignUp.setText("SignUp");
-
-        lblLastName.setText("Last Name");
 
         lblPass.setText("Password");
 
@@ -109,21 +107,17 @@ public class CreateUser extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblConPass)
-                                    .addComponent(lblLastName)
                                     .addComponent(pssConPass, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
-                                .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblSignUp)
                                     .addComponent(lblUser)
                                     .addComponent(lblEmail)
-                                    .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(pssPass, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(pssPass, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -132,7 +126,7 @@ public class CreateUser extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(btnBack)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 162, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -145,13 +139,9 @@ public class CreateUser extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblName)
-                    .addComponent(lblLastName))
+                .addComponent(lblName)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPass)
@@ -196,6 +186,16 @@ public class CreateUser extends javax.swing.JFrame {
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here
         /*Codigo para el registro en database*/
+        DAO dao = new DAO();
+        String username = txtUser.getText();
+        String name = txtName.getText();
+        String password = pssPass.getText();
+        String conPassword = pssConPass.getText();
+        String email = txtEmail.getText();
+        if (password.equals(conPassword)) {
+            dao.createUser(username, password, name, email);
+        } else {
+        }
         this.dispose();
         Login lg = new Login();
         lg.setVisible(true);
@@ -241,7 +241,6 @@ public class CreateUser extends javax.swing.JFrame {
     private javax.swing.JButton btnRegister;
     private javax.swing.JLabel lblConPass;
     private javax.swing.JLabel lblEmail;
-    private javax.swing.JLabel lblLastName;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPass;
     private javax.swing.JLabel lblSignUp;
@@ -249,7 +248,6 @@ public class CreateUser extends javax.swing.JFrame {
     private javax.swing.JPasswordField pssConPass;
     private javax.swing.JPasswordField pssPass;
     private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtLastName;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
