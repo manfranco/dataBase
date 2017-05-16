@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class DAO {
 
     // JDBC driver name and database URL
-    static User user = new User();
+    User user = new User();
     static final String JDBC_DRIVER = "oracle.jdbc.driver.OracleDriver";
     static final String DB_URL = "jdbc:oracle:thin:@localhost:1521:xe";
     private Connection conn = null;
@@ -36,12 +36,8 @@ public class DAO {
         System.out.println("Goodbye!");
     }//end main
 
-    public static User getUser() {
-        return user;
-    }
-    
     public User login(String username, String password) {
-
+        User user = new User();
         int in = 0;
         try {
             //STEP 4: Execute a query
