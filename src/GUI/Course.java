@@ -7,8 +7,10 @@ package GUI;
 
 import Access.DAO;
 import Access.Courses;
+import Access.Classes;
+import Access.Text;
 import java.util.ArrayList;
-
+import Access.Workshop;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -20,9 +22,25 @@ public class Course extends javax.swing.JFrame {
     /**
      * Creates new form Course
      */
-    
+    DAO dao = new DAO();
+
     public Course() {
         initComponents();
+        ArrayList<Text> texts = dao.textCourse();
+        ArrayList<Workshop> workshops = dao.workshopCourse();
+        ArrayList<Classes> classes = dao.classCourse();
+        DefaultTableModel textmodel = (DefaultTableModel) tblTexts.getModel();
+        DefaultTableModel workshopmodel = (DefaultTableModel) tblWorkShops.getModel();
+        DefaultTableModel classesmodel = (DefaultTableModel) tblClasses.getModel();
+        texts.forEach((text) -> {
+            textmodel.addRow(new Object[]{text.getId(), text.getName(), text.getAuthor(), text.getIsbn()});
+        });
+        workshops.forEach((workshop) -> {
+            workshopmodel.addRow(new Object[]{workshop.getId(), workshop.getActivity(), workshop.getClue()});
+        });
+        classes.forEach((classe) -> {
+            classesmodel.addRow(new Object[]{classe.getId_class(), classe.getName(), classe.getDate()});
+        });
         
     }
 
