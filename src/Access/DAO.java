@@ -80,6 +80,51 @@ public class DAO {
     }
 
     public User createUser(String username, String password, String name, String email) {
+        
+        int in = 0;
+        int check = checkUser(username);
+        if(check == 1){
+        try {
+            //STEP 4: Execute a query
+            System.out.println("Creating statement...");
+            stmt2 = conn.prepareCall("{? = call CREATE_USER(?,?,?,?,?)}");
+            stmt2.registerOutParameter(1, Types.INTEGER);
+            stmt2.setInt(2, user.getIduser());
+            stmt2.setString(2, username);
+            stmt2.setString(3, password);
+            stmt2.setString(4, name);
+            stmt2.setString(5, email);
+            stmt2.execute();
+            in = stmt2.getInt(1);
+            if (in != 0) {
+                System.out.println("Estamos dentro");
+                stmt = conn.createStatement();
+                String sql;
+                sql = "SELECT * FROM USUARIO WHERE ID_USER = " + in;
+                
+                ResultSet rs = stmt.executeQuery(sql);
+                //STEP 5: Extract data from result set
+                
+                while (rs.next()) {
+                    user.setEmail_user(rs.getString("EMAIL_USER"));
+                    user.setIduser(rs.getInt("ID_USER"));
+                    user.setName_user(rs.getString("NAME_USER"));
+                    user.setPassword(rs.getString("PASSWORD"));
+                    user.setUsername(rs.getString("USERNAME"));
+                }
+            } else {
+                System.out.println("nope");
+            }
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+        return user;
+        }
+        System.out.println("El usuario ya existe");
+        return null;
+    }
+        
+        public User editUser(String username, String password, String name, String email) {
         User user = new User();
         int in = 0;
         int check = checkUser(username);
@@ -87,7 +132,7 @@ public class DAO {
         try {
             //STEP 4: Execute a query
             System.out.println("Creating statement...");
-            stmt2 = conn.prepareCall("{? = call CREATE_USER(?,?,?,?)}");
+            stmt2 = conn.prepareCall("{? = call EDIT_USER(?,?,?,?)}");
             stmt2.registerOutParameter(1, Types.INTEGER);
             stmt2.setString(2, username);
             stmt2.setString(3, password);
@@ -122,7 +167,7 @@ public class DAO {
         System.out.println("El usuario ya existe");
         return null;
     }
-
+    
         public void checkAccess(String type, int courseId, int inputId) {
         User user = new User();
         int in = 0;

@@ -182,6 +182,11 @@ public class EditUser extends javax.swing.JFrame {
     private void btnAceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptActionPerformed
         // TODO add your handling code here:
         this.dispose();
+        String username = txtUser.getText();
+        String password = pssPass.getText();
+        String name = txtName.getText();
+        String email = txtEmail.getText();
+        dao.editUser(username, password, name, email);
         Home hm = new Home();
         hm.setVisible(true);
     }//GEN-LAST:event_btnAceptActionPerformed
