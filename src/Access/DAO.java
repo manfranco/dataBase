@@ -131,8 +131,7 @@ public class DAO {
         try {
             //STEP 4: Execute a query
             System.out.println("Creating statement...");
-            stmt2 = conn.prepareCall("{? = call EDIT_USER(?,?,?,?,?)}");
-            stmt2.registerOutParameter(1, Types.INTEGER);
+            stmt2 = conn.prepareCall("{call EDIT_USER(?,?,?,?,?)}");
             stmt2.setInt(2, user.getIduser());
             stmt2.setString(3, username);
             stmt2.setString(4, password);
