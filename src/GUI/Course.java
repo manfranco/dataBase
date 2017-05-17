@@ -29,9 +29,11 @@ public class Course extends javax.swing.JFrame {
         ArrayList<Text> texts = dao.textCourse();
         ArrayList<Workshop> workshops = dao.workshopCourse();
         ArrayList<Classes> classes = dao.classCourse();
+        
         DefaultTableModel textmodel = (DefaultTableModel) tblTexts.getModel();
         DefaultTableModel workshopmodel = (DefaultTableModel) tblWorkShops.getModel();
         DefaultTableModel classesmodel = (DefaultTableModel) tblClasses.getModel();
+        
         texts.forEach((text) -> {
             textmodel.addRow(new Object[]{text.getId(), text.getName(), text.getAuthor(), text.getIsbn()});
         });
