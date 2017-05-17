@@ -80,16 +80,15 @@ public class DAO {
     }
 
     public User createUser(String username, String password, String name, String email) {
-        
+        User user = new User();
         int in = 0;
         int check = checkUser(username);
         if(check == 1){
         try {
             //STEP 4: Execute a query
             System.out.println("Creating statement...");
-            stmt2 = conn.prepareCall("{? = call CREATE_USER(?,?,?,?,?)}");
+            stmt2 = conn.prepareCall("{? = call CREATE_USER(?,?,?,?)}");
             stmt2.registerOutParameter(1, Types.INTEGER);
-            stmt2.setInt(2, user.getIduser());
             stmt2.setString(2, username);
             stmt2.setString(3, password);
             stmt2.setString(4, name);
@@ -125,19 +124,20 @@ public class DAO {
     }
         
         public User editUser(String username, String password, String name, String email) {
-        User user = new User();
+        
         int in = 0;
         int check = checkUser(username);
         if(check == 1){
         try {
             //STEP 4: Execute a query
             System.out.println("Creating statement...");
-            stmt2 = conn.prepareCall("{? = call EDIT_USER(?,?,?,?)}");
+            stmt2 = conn.prepareCall("{? = call EDIT_USER(?,?,?,?,?)}");
             stmt2.registerOutParameter(1, Types.INTEGER);
-            stmt2.setString(2, username);
-            stmt2.setString(3, password);
-            stmt2.setString(4, name);
-            stmt2.setString(5, email);
+            stmt2.setInt(2, user.getIduser());
+            stmt2.setString(3, username);
+            stmt2.setString(4, password);
+            stmt2.setString(5, name);
+            stmt2.setString(6, email);
             stmt2.execute();
             in = stmt2.getInt(1);
             if (in != 0) {
