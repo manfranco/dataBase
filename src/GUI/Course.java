@@ -75,7 +75,7 @@ public class Course extends javax.swing.JFrame {
                 Workshop work = new Workshop();
                 work.setId(Integer.parseInt(tblWorkShops.getValueAt(tblWorkShops.getSelectedRow(), 0).toString()));
                 work.setActivity(tblWorkShops.getValueAt(tblWorkShops.getSelectedRow(), 1).toString());
-                work.setSolution(tblWorkShops.getValueAt(tblWorkShops.getSelectedRow(), 3).toString());
+                work.setSolution(tblWorkShops.getValueAt(tblWorkShops.getSelectedRow(), 2).toString());
                 //this.setVisible(false);
                 Workshops worksh = new Workshops(work);
                 worksh.setVisible(true);
