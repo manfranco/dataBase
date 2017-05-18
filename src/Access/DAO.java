@@ -279,6 +279,7 @@ public class DAO {
                 text.setContent(rs.getString("CONTENT"));
                 texts.add(text);
             }
+            
             System.out.println("Cursos enviados");
         } catch (Exception e) {
             System.out.println(e.toString());
