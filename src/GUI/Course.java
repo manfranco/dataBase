@@ -26,8 +26,9 @@ public class Course extends javax.swing.JFrame {
      * Creates new form Course
      */
     DAO dao = new DAO();
-
+    Courses co = new Courses();
     public Course(Courses c) {
+        co = c;
         initComponents();
         ArrayList<Text> texts = dao.textCourse(c.getId_course());
         ArrayList<Workshop> workshops = dao.workshopCourse(c.getId_course());
@@ -60,7 +61,7 @@ public class Course extends javax.swing.JFrame {
                 text.setContent(tblTexts.getValueAt(tblTexts.getSelectedRow(), 4).toString());
 
                 //this.setVisible(false);
-                Texts te = new Texts(text);
+                Texts te = new Texts(text, co);
                 te.setVisible(true);
             }
 
@@ -69,15 +70,12 @@ public class Course extends javax.swing.JFrame {
         tblWorkShops.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent event) {
                 // do some actions here, for example
-                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-                
-                
                 Workshop work = new Workshop();
                 work.setId(Integer.parseInt(tblWorkShops.getValueAt(tblWorkShops.getSelectedRow(), 0).toString()));
                 work.setActivity(tblWorkShops.getValueAt(tblWorkShops.getSelectedRow(), 1).toString());
                 work.setSolution(tblWorkShops.getValueAt(tblWorkShops.getSelectedRow(), 2).toString());
                 //this.setVisible(false);
-                Workshops worksh = new Workshops(work);
+                Workshops worksh = new Workshops(work, co);
                 worksh.setVisible(true);
             }
 
@@ -298,8 +296,8 @@ public class Course extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (evt.getClickCount() == 2) {
             this.setVisible(false);
-            Texts tx = new Texts(null);
-            tx.setVisible(true);
+            //Texts tx = new Texts(null);
+            //tx.setVisible(true);
         }
     }//GEN-LAST:event_tblTextsMouseClicked
 
@@ -310,47 +308,17 @@ public class Course extends javax.swing.JFrame {
 
     private void tblWorkShopsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblWorkShopsMouseClicked
         // TODO add your handling code here:
-        if (evt.getClickCount() == 2) {
+        /*if (evt.getClickCount() == 2) {
             this.setVisible(false);
             Workshops wo = new Workshops(null);
             wo.setVisible(true);
-        }
+        }*/
     }//GEN-LAST:event_tblWorkShopsMouseClicked
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Course.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Course.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Course.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Course.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Course(null).setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;

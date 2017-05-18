@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import Access.Courses;
 import Access.Workshop;
 
 /**
@@ -16,7 +17,8 @@ public class Workshops extends javax.swing.JFrame {
     /**
      * Creates new form Workshops
      */
-    public Workshops(Workshop w) {
+    Courses co = new Courses();
+    public Workshops(Workshop w, Courses c) {
         initComponents();
         Integer id = w.getId();
         lblIDActivityQuery.setText(id.toString());
@@ -35,7 +37,6 @@ public class Workshops extends javax.swing.JFrame {
         btnBack = new javax.swing.JButton();
         lblIDActivity = new javax.swing.JLabel();
         lblAct = new javax.swing.JLabel();
-        cbxClue = new javax.swing.JCheckBox();
         lblActivy = new javax.swing.JLabel();
         btnSolution = new javax.swing.JButton();
         lblIDActivityQuery = new javax.swing.JLabel();
@@ -53,8 +54,6 @@ public class Workshops extends javax.swing.JFrame {
 
         lblAct.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblAct.setText("Activity");
-
-        cbxClue.setText("Clue");
 
         lblActivy.setText("<activity>");
 
@@ -75,9 +74,6 @@ public class Workshops extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblActivy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(cbxClue))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnBack)
@@ -104,9 +100,7 @@ public class Workshops extends javax.swing.JFrame {
                 .addComponent(lblAct)
                 .addGap(18, 18, 18)
                 .addComponent(lblActivy, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(cbxClue)
-                .addGap(59, 59, 59)
+                .addGap(100, 100, 100)
                 .addComponent(btnSolution)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
                 .addComponent(btnBack)
@@ -123,8 +117,8 @@ public class Workshops extends javax.swing.JFrame {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         this.dispose();//Destruye la ventana
-        Course co = new Course(null); //
-        co.setVisible(true); //Muestra venta Course
+        Course cou = new Course(co); //
+        cou.setVisible(true); //Muestra venta Course
     }//GEN-LAST:event_btnBackActionPerformed
 
     /**
@@ -135,7 +129,6 @@ public class Workshops extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSolution;
-    private javax.swing.JCheckBox cbxClue;
     private javax.swing.JLabel lblAct;
     private javax.swing.JLabel lblActivy;
     private javax.swing.JLabel lblIDActivity;

@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import Access.Courses;
 import Access.Text;
 
 /**
@@ -16,7 +17,9 @@ public class Texts extends javax.swing.JFrame {
     /**
      * Creates new form Texts
      */
-    public Texts(Text t) {
+    Courses cou = new Courses();
+    public Texts(Text t, Courses c) {
+        cou = c;
         initComponents();
         lblAuthorQuery.setText(t.getAuthor());
         lblNameQuery.setText(t.getName());
@@ -109,7 +112,7 @@ public class Texts extends javax.swing.JFrame {
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        Course co = new Course(null);
+        Course co = new Course(cou);
         co.setVisible(true);
     }//GEN-LAST:event_btnCloseActionPerformed
 
