@@ -38,7 +38,7 @@ public class Course extends javax.swing.JFrame {
         DefaultTableModel classesmodel = (DefaultTableModel) tblClasses.getModel();
 
         texts.forEach((text) -> {
-            textmodel.addRow(new Object[]{text.getId(), text.getName(), text.getAuthor(), text.getIsbn()});
+            textmodel.addRow(new Object[]{text.getId(), text.getName(), text.getAuthor(), text.getIsbn(), text.getContent()});
         });
         workshops.forEach((workshop) -> {
             workshopmodel.addRow(new Object[]{workshop.getId(), workshop.getActivity(), workshop.getClue()});
@@ -57,6 +57,7 @@ public class Course extends javax.swing.JFrame {
                 text.setName(tblTexts.getValueAt(tblTexts.getSelectedRow(), 1).toString());
                 text.setAuthor(tblTexts.getValueAt(tblTexts.getSelectedRow(), 2).toString());
                 text.setIsbn(tblTexts.getValueAt(tblTexts.getSelectedRow(), 3).toString());
+                text.setContent(tblTexts.getValueAt(tblTexts.getSelectedRow(), 4).toString());
 
                 //this.setVisible(false);
                 Texts te = new Texts(text);
