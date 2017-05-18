@@ -18,6 +18,9 @@ public class Workshops extends javax.swing.JFrame {
      */
     public Workshops(Workshop w) {
         initComponents();
+        Integer id = w.getId();
+        lblIDActivityQuery.setText(id.toString());
+        lblActivy.setText(w.getActivity());
     }
 
     /**
