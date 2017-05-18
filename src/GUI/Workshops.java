@@ -19,6 +19,7 @@ public class Workshops extends javax.swing.JFrame {
      */
     Courses co = new Courses();
     public Workshops(Workshop w, Courses c) {
+        co = c;
         initComponents();
         Integer id = w.getId();
         lblIDActivityQuery.setText(id.toString());
