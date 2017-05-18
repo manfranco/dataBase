@@ -3,16 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package GUI;
 
 import Access.Courses;
 import Access.DAO;
-import java.util.*;
+import java.util.ArrayList;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author admin
@@ -23,16 +27,34 @@ public class Home extends javax.swing.JFrame {
      * Creates new form Home
      */
     DAO dao = new DAO();
+
     public Home() {
         initComponents();
         DefaultTableModel model = (DefaultTableModel) tblCourses.getModel();
-        ArrayList <Courses> course = dao.coursesAvailable();
+        ArrayList<Courses> course = dao.coursesAvailable();
         for (Courses courses : course) {
-            model.addRow(new Object[]{courses.getName(), courses.getLanguage(), courses.getStart_time()});
+            model.addRow(new Object[]{courses.getId_course(), courses.getName(), courses.getDifficulty() , courses.getLanguage(), courses.getStart_time(), courses.getEnd_time(), courses.getTotal_grade()});
         }
+
+        tblCourses.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent event) {
+                // do some actions here, for example
+                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+                
+                
+                Courses courses = new Courses();
+                courses.setId_course(Integer.parseInt(tblCourses.getValueAt(tblCourses.getSelectedRow(), 0).toString()));
+                courses.setName(tblCourses.getValueAt(tblCourses.getSelectedRow(), 1).toString());
+                courses.setDifficulty(Integer.parseInt(tblCourses.getValueAt(tblCourses.getSelectedRow(), 2).toString()));
+                courses.setLanguage(tblCourses.getValueAt(tblCourses.getSelectedRow(), 3).toString());
+                courses.setTotal_grade(Double.parseDouble(tblCourses.getValueAt(tblCourses.getSelectedRow(), 6).toString()));
+                //this.setVisible(false);
+                Course co = new Course(courses);
+                co.setVisible(true);
+            }
+
+        });
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,6 +70,7 @@ public class Home extends javax.swing.JFrame {
         btnLogOut = new javax.swing.JButton();
         scpCourses = new javax.swing.JScrollPane();
         tblCourses = new javax.swing.JTable();
+        lblCourses = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,8 +92,7 @@ public class Home extends javax.swing.JFrame {
 
         tblCourses.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "ID", "Name", "Difficulty", "Language", "Start Time", "End Time", "Total Grade"
@@ -98,6 +120,9 @@ public class Home extends javax.swing.JFrame {
         });
         scpCourses.setViewportView(tblCourses);
 
+        lblCourses.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblCourses.setText("Courses");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -113,8 +138,10 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(btnLogOut)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(50, Short.MAX_VALUE)
-                .addComponent(scpCourses, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(209, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblCourses)
+                    .addComponent(scpCourses, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38))
         );
         layout.setVerticalGroup(
@@ -123,7 +150,9 @@ public class Home extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblUser)
                     .addComponent(lblUserQuery))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addComponent(lblCourses)
+                .addGap(18, 18, 18)
                 .addComponent(scpCourses, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnLogOut)
@@ -145,26 +174,22 @@ public class Home extends javax.swing.JFrame {
         this.dispose();
         Login lg = new Login();
         lg.setVisible(true);
-        
+
     }//GEN-LAST:event_btnLogOutActionPerformed
 
     private void tblCoursesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblCoursesMouseClicked
         // TODO add your handling code here:
-        if(evt.getClickCount()==2){
+        if (evt.getClickCount() == 2) {
             this.setVisible(false);
-            Course co = new Course();
-            co.setVisible(true);
+            //Course co = new Course();
+            //co.setVisible(true);
         }
-        
+
     }//GEN-LAST:event_tblCoursesMouseClicked
 
-    
-    
     /**
      * @param args the command line arguments
      */
-    
-    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -195,12 +220,12 @@ public class Home extends javax.swing.JFrame {
                 new Home().setVisible(true);
             }
         });
-        
-        
-                }
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogOut;
+    private javax.swing.JLabel lblCourses;
     private javax.swing.JLabel lblUser;
     private javax.swing.JLabel lblUserQuery;
     private javax.swing.JScrollPane scpCourses;

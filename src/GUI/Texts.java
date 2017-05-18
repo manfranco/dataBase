@@ -5,6 +5,8 @@
  */
 package GUI;
 
+import Access.Text;
+
 /**
  *
  * @author James
@@ -14,8 +16,11 @@ public class Texts extends javax.swing.JFrame {
     /**
      * Creates new form Texts
      */
-    public Texts() {
+    public Texts(Text t) {
         initComponents();
+        lblAuthorQuery.setText(t.getAuthor());
+        lblNameQuery.setText(t.getName());
+        lblContent.setText(t.getContent());
     }
 
     /**
@@ -32,9 +37,8 @@ public class Texts extends javax.swing.JFrame {
         lblName = new javax.swing.JLabel();
         lblNameQuery = new javax.swing.JLabel();
         lblAuthorQuery = new javax.swing.JLabel();
-        pnlContent = new javax.swing.JPanel();
-        lblContent = new javax.swing.JLabel();
         btnClose = new javax.swing.JButton();
+        lblContent = new javax.swing.JLabel();
 
         jLabel5.setText("jLabel5");
 
@@ -48,25 +52,6 @@ public class Texts extends javax.swing.JFrame {
 
         lblAuthorQuery.setText("<Author>");
 
-        lblContent.setText("<content>");
-
-        javax.swing.GroupLayout pnlContentLayout = new javax.swing.GroupLayout(pnlContent);
-        pnlContent.setLayout(pnlContentLayout);
-        pnlContentLayout.setHorizontalGroup(
-            pnlContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlContentLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(lblContent, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        pnlContentLayout.setVerticalGroup(
-            pnlContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlContentLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblContent, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
-        );
-
         btnClose.setText("Close");
         btnClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,10 +59,16 @@ public class Texts extends javax.swing.JFrame {
             }
         });
 
+        lblContent.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(183, Short.MAX_VALUE)
+                .addComponent(btnClose)
+                .addGap(155, 155, 155))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,13 +79,9 @@ public class Texts extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblAuthorQuery)
-                            .addComponent(lblNameQuery))
-                        .addContainerGap(291, Short.MAX_VALUE))
-                    .addComponent(pnlContent, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnClose)
-                .addGap(155, 155, 155))
+                            .addComponent(lblNameQuery)))
+                    .addComponent(lblContent))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,9 +96,9 @@ public class Texts extends javax.swing.JFrame {
                         .addComponent(lblName)
                         .addGap(18, 18, 18)
                         .addComponent(lblAuthor)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(pnlContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addGap(18, 18, 18)
+                .addComponent(lblContent)
+                .addGap(289, 289, 289)
                 .addComponent(btnClose)
                 .addContainerGap(66, Short.MAX_VALUE))
         );
@@ -122,44 +109,14 @@ public class Texts extends javax.swing.JFrame {
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        Course co = new Course();
+        Course co = new Course(null);
         co.setVisible(true);
     }//GEN-LAST:event_btnCloseActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Texts.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Texts.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Texts.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Texts.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Texts().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClose;
@@ -169,6 +126,5 @@ public class Texts extends javax.swing.JFrame {
     private javax.swing.JLabel lblContent;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblNameQuery;
-    private javax.swing.JPanel pnlContent;
     // End of variables declaration//GEN-END:variables
 }

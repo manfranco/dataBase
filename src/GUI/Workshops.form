@@ -34,11 +34,6 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnBack" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblTags" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lblTagsQuery" min="-2" max="-2" attributes="0"/>
-                          </Group>
                           <Component id="lblAct" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="lblIDActivity" min="-2" max="-2" attributes="0"/>
@@ -66,12 +61,7 @@
                   <Component id="lblIDActivity" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblIDActivityQuery" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblTags" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblTagsQuery" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
               <Component id="lblAct" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="lblActivy" min="-2" pref="143" max="-2" attributes="0"/>
@@ -98,11 +88,6 @@
     <Component class="javax.swing.JLabel" name="lblIDActivity">
       <Properties>
         <Property name="text" type="java.lang.String" value="ID:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblTags">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Tags:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblAct">
@@ -134,11 +119,6 @@
     <Component class="javax.swing.JLabel" name="lblIDActivityQuery">
       <Properties>
         <Property name="text" type="java.lang.String" value="&lt;id_activity&gt;"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblTagsQuery">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="&lt;tags&gt;"/>
       </Properties>
     </Component>
   </SubComponents>

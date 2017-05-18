@@ -213,7 +213,7 @@ public class DAO {
             System.out.println("Creating statement...");
             stmt = conn.createStatement();
             String sql;
-            sql = "SELECT * FROM student_course";
+            sql = "SELECT * FROM student_course WHERE ID_USER = " + user.getIduser();
             ResultSet rs = stmt.executeQuery(sql);
             //STEP 5: Extract data from result set
 
@@ -234,14 +234,14 @@ public class DAO {
         return courses;
     }
     
-    public ArrayList<Workshop> workshopCourse() {
+    public ArrayList<Workshop> workshopCourse(int id) {
         ArrayList<Workshop> workshops = new ArrayList();
         try {
             //STEP 4: Execute a query
             System.out.println("Creating statement...");
             stmt = conn.createStatement();
             String sql;
-            sql = "SELECT * FROM student_course";
+            sql = "SELECT * FROM workshop_course WHERE ID_COURSE = " + id;
             ResultSet rs = stmt.executeQuery(sql);
             //STEP 5: Extract data from result set
 
@@ -259,23 +259,24 @@ public class DAO {
         return workshops;
     }
     
-    public ArrayList<Text> textCourse() {
+    public ArrayList<Text> textCourse(int id) {
         ArrayList<Text> texts = new ArrayList();
         try {
             //STEP 4: Execute a query
             System.out.println("Creating statement...");
             stmt = conn.createStatement();
             String sql;
-            sql = "SELECT * FROM text_course";
+            sql = "SELECT * FROM texts_course WHERE ID_COURSE = " + id;
             ResultSet rs = stmt.executeQuery(sql);
             //STEP 5: Extract data from result set
 
             while (rs.next()) {
                 Text text = new Text();
                 text.setAuthor(rs.getString("AUTHOR"));
-                text.setId(rs.getInt("ID_TEXT"));
+                text.setId(rs.getInt("ID_TEXTS"));
                 text.setIsbn(rs.getString("ISBN"));
-                text.setName(rs.getString("NAME_TEXT"));
+                text.setName(rs.getString("NAME"));
+                text.setContent(rs.getString("CONTENT"));
                 texts.add(text);
             }
             System.out.println("Cursos enviados");
@@ -285,14 +286,14 @@ public class DAO {
         return texts;
     }
     
-    public ArrayList<Classes> classCourse() {
+    public ArrayList<Classes> classCourse(int id) {
         ArrayList<Classes> classes = new ArrayList();
         try {
             //STEP 4: Execute a query
             System.out.println("Creating statement...");
             stmt = conn.createStatement();
             String sql;
-            sql = "SELECT * FROM class_course";
+            sql = "SELECT * FROM class_course WHERE ID_COURSE = " + id;
             ResultSet rs = stmt.executeQuery(sql);
             //STEP 5: Extract data from result set
 

@@ -11,6 +11,9 @@ import Access.Classes;
 import Access.Text;
 import java.util.ArrayList;
 import Access.Workshop;
+import java.text.SimpleDateFormat;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -24,16 +27,16 @@ public class Course extends javax.swing.JFrame {
      */
     DAO dao = new DAO();
 
-    public Course() {
+    public Course(Courses c) {
         initComponents();
-        ArrayList<Text> texts = dao.textCourse();
-        ArrayList<Workshop> workshops = dao.workshopCourse();
-        ArrayList<Classes> classes = dao.classCourse();
-        
+        ArrayList<Text> texts = dao.textCourse(c.getId_course());
+        ArrayList<Workshop> workshops = dao.workshopCourse(c.getId_course());
+        ArrayList<Classes> classes = dao.classCourse(c.getId_course());
+
         DefaultTableModel textmodel = (DefaultTableModel) tblTexts.getModel();
         DefaultTableModel workshopmodel = (DefaultTableModel) tblWorkShops.getModel();
         DefaultTableModel classesmodel = (DefaultTableModel) tblClasses.getModel();
-        
+
         texts.forEach((text) -> {
             textmodel.addRow(new Object[]{text.getId(), text.getName(), text.getAuthor(), text.getIsbn()});
         });
@@ -43,7 +46,41 @@ public class Course extends javax.swing.JFrame {
         classes.forEach((classe) -> {
             classesmodel.addRow(new Object[]{classe.getId_class(), classe.getName(), classe.getDate()});
         });
+
+        tblTexts.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent event) {
+                // do some actions here, for example
+                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+
+                Text text = new Text();
+                text.setId(Integer.parseInt(tblTexts.getValueAt(tblTexts.getSelectedRow(), 0).toString()));
+                text.setName(tblTexts.getValueAt(tblTexts.getSelectedRow(), 1).toString());
+                text.setAuthor(tblTexts.getValueAt(tblTexts.getSelectedRow(), 2).toString());
+                text.setIsbn(tblTexts.getValueAt(tblTexts.getSelectedRow(), 3).toString());
+
+                //this.setVisible(false);
+                Texts te = new Texts(text);
+                te.setVisible(true);
+            }
+
+        });
         
+        tblWorkShops.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent event) {
+                // do some actions here, for example
+                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+                
+                
+                Workshop work = new Workshop();
+                work.setId(Integer.parseInt(tblWorkShops.getValueAt(tblWorkShops.getSelectedRow(), 0).toString()));
+                work.setActivity(tblWorkShops.getValueAt(tblWorkShops.getSelectedRow(), 1).toString());
+                work.setSolution(tblWorkShops.getValueAt(tblWorkShops.getSelectedRow(), 3).toString());
+                //this.setVisible(false);
+                Workshops worksh = new Workshops(work);
+                worksh.setVisible(true);
+            }
+
+        });
     }
 
     /**
@@ -106,17 +143,14 @@ public class Course extends javax.swing.JFrame {
 
         tblTexts.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "ID", "Name", "Author", "ISBN"
+                "ID", "Name", "Author", "ISBN", "Content"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -132,10 +166,7 @@ public class Course extends javax.swing.JFrame {
 
         tblWorkShops.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "ID", "Activity", "Tags"
@@ -145,7 +176,7 @@ public class Course extends javax.swing.JFrame {
                 java.lang.Integer.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, true, false
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -156,21 +187,23 @@ public class Course extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tblWorkShops.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblWorkShopsMouseClicked(evt);
+            }
+        });
         scpWorkShops.setViewportView(tblWorkShops);
 
         tblClasses.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "ID", "Name", "Dates"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, true, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -219,19 +252,15 @@ public class Course extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblUserQuery)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblUserQuery)
-                        .addGap(64, 64, 64))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblCourseName)
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblCourse_ID)
-                                    .addComponent(lblIDCo)))
-                            .addComponent(lblUser))
-                        .addGap(32, 32, 32)))
+                        .addComponent(lblCourseName)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblCourse_ID)
+                            .addComponent(lblIDCo)))
+                    .addComponent(lblUser))
+                .addGap(32, 32, 32)
                 .addComponent(lblText)
                 .addGap(18, 18, 18)
                 .addComponent(scpTexts, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -268,19 +297,24 @@ public class Course extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (evt.getClickCount() == 2) {
             this.setVisible(false);
-            Texts tx = new Texts();
+            Texts tx = new Texts(null);
             tx.setVisible(true);
         }
     }//GEN-LAST:event_tblTextsMouseClicked
 
     private void tblClassesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblClassesMouseClicked
         // TODO add your handling code here:
+
+    }//GEN-LAST:event_tblClassesMouseClicked
+
+    private void tblWorkShopsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblWorkShopsMouseClicked
+        // TODO add your handling code here:
         if (evt.getClickCount() == 2) {
             this.setVisible(false);
-            Workshops wo = new Workshops();
+            Workshops wo = new Workshops(null);
             wo.setVisible(true);
         }
-    }//GEN-LAST:event_tblClassesMouseClicked
+    }//GEN-LAST:event_tblWorkShopsMouseClicked
 
     /**
      * @param args the command line arguments
@@ -312,7 +346,7 @@ public class Course extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Course().setVisible(true);
+                new Course(null).setVisible(true);
             }
         });
     }

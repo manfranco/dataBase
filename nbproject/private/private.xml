@@ -3,12 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Miguel%20Morales/Documents/NetBeansProjects/dataBase/src/GUI/EditUser.java</file>
             <file>file:/C:/Users/Miguel%20Morales/Documents/NetBeansProjects/dataBase/src/GUI/Login.java</file>
             <file>file:/C:/Users/Miguel%20Morales/Documents/NetBeansProjects/dataBase/src/Access/Test.java</file>
             <file>file:/C:/Users/Miguel%20Morales/Documents/NetBeansProjects/dataBase/src/GUI/Course.java</file>
             <file>file:/C:/Users/Miguel%20Morales/Documents/NetBeansProjects/dataBase/src/Access/User.java</file>
             <file>file:/C:/Users/Miguel%20Morales/Documents/NetBeansProjects/dataBase/src/Access/DAO.java</file>
+=======
+            <file>file:/C:/Users/mfranco/Documents/GitHub/dataBase/src/Access/User.java</file>
+            <file>file:/C:/Users/mfranco/Documents/GitHub/dataBase/src/GUI/Home.java</file>
+            <file>file:/C:/Users/mfranco/Documents/GitHub/dataBase/src/Access/DAO.java</file>
+            <file>file:/C:/Users/mfranco/Documents/GitHub/dataBase/src/GUI/EditUser.java</file>
+            <file>file:/C:/Users/mfranco/Documents/GitHub/dataBase/src/Access/Workshop.java</file>
+            <file>file:/C:/Users/mfranco/Documents/GitHub/dataBase/src/GUI/Texts.java</file>
+            <file>file:/C:/Users/mfranco/Documents/GitHub/dataBase/src/GUI/Course.java</file>
+            <file>file:/C:/Users/mfranco/Documents/GitHub/dataBase/src/Access/Courses.java</file>
+>>>>>>> origin/master
         </group>
     </open-files>
 </project-private>
